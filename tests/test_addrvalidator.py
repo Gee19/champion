@@ -66,9 +66,7 @@ class TestDetermineLocalAddresses:
             addresses = determine_local_addresses()
             assert isinstance(addresses, list)
             for addr in addresses:
-                assert isinstance(
-                    addr, (ipaddress.IPv4Network, ipaddress.IPv6Network)
-                )
+                assert isinstance(addr, (ipaddress.IPv4Network, ipaddress.IPv6Network))
         except ImportError:
             pytest.skip("netifaces not installed")
 
@@ -157,9 +155,7 @@ class TestAddrValidatorIPv6:
     def test_ipv6_blocked_by_default(self, validator_no_ipv6: AddrValidator) -> None:
         """Should block IPv6 when not explicitly enabled."""
         # Public IPv6 address
-        assert not validator_no_ipv6.is_ip_allowed(
-            "2001:4860:4860::8888", _local_addresses=[]
-        )
+        assert not validator_no_ipv6.is_ip_allowed("2001:4860:4860::8888", _local_addresses=[])
 
     def test_public_ipv6_allowed(self, validator: AddrValidator) -> None:
         """Should allow public IPv6 addresses when enabled."""

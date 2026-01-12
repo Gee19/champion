@@ -52,9 +52,9 @@ jobs:
       - name: Run ruff check
         run: uv run ruff check champion tests
 
-      # - name: Run ruff format check
-      #   run: |
-      #     ruff format --check champion tests
+      - name: Run ruff format check
+        run: |
+          uv run ruff format --check champion tests
 
   type-check:
     runs-on: ubuntu-latest

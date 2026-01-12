@@ -103,9 +103,7 @@ class Session(RequestsSession):
         if self._mount_allowed:
             super().mount(prefix, adapter)
         else:
-            raise MountDisabledException(
-                "mount() is disabled to prevent protection bypasses"
-            )
+            raise MountDisabledException("mount() is disabled to prevent protection bypasses")
 
 
 def session(*args: Any, **kwargs: Any) -> Session:

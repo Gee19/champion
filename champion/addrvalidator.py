@@ -265,9 +265,7 @@ class AddrValidator:
 
         return not addr_ip.is_unspecified
 
-    def _hostname_matches_pattern(
-        self, hostname: str, pattern: str | Pattern[str]
-    ) -> bool:
+    def _hostname_matches_pattern(self, hostname: str, pattern: str | Pattern[str]) -> bool:
         """Check if a hostname matches a blacklist pattern.
 
         Args:
@@ -285,10 +283,7 @@ class AddrValidator:
         # Handle null bytes that could be used for bypasses
         no_null_hostname = hostname.split("\x00")[0]
 
-        return any(
-            re.match(pattern, x.strip("."))
-            for x in (no_null_hostname, hostname)
-        )
+        return any(re.match(pattern, x.strip(".")) for x in (no_null_hostname, hostname))
 
     def is_hostname_allowed(self, hostname: str) -> bool:
         """Check if a hostname is allowed.

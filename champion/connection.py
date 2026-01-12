@@ -178,7 +178,9 @@ def validating_create_connection(
         raise OSError("getaddrinfo returns an empty list")
 
 
-def _validating_new_conn(self: ValidatingHTTPConnection | ValidatingHTTPSConnection) -> socket.socket:
+def _validating_new_conn(
+    self: ValidatingHTTPConnection | ValidatingHTTPSConnection,
+) -> socket.socket:
     """Establish a validated socket connection.
 
     This method replaces the default _new_conn to add SSRF validation.
@@ -226,7 +228,9 @@ def _validating_new_conn(self: ValidatingHTTPConnection | ValidatingHTTPSConnect
 
 # Verify the urllib3 API hasn't changed in a way that would break us
 assert hasattr(HTTPConnection, "_new_conn"), "urllib3 API changed: HTTPConnection._new_conn missing"
-assert hasattr(HTTPSConnection, "_new_conn"), "urllib3 API changed: HTTPSConnection._new_conn missing"
+assert hasattr(HTTPSConnection, "_new_conn"), (
+    "urllib3 API changed: HTTPSConnection._new_conn missing"
+)
 
 
 class ValidatingHTTPConnection(HTTPConnection):

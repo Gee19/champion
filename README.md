@@ -24,6 +24,8 @@ Champion is a modernized fork of [Advocate](https://github.com/JordanMilne/Advoc
 
 ```bash
 pip install champion
+# or
+uv add champion
 ```
 
 With optional dependencies:
@@ -31,12 +33,18 @@ With optional dependencies:
 ```bash
 # For local network interface detection
 pip install champion[netifaces]
+# or
+uv add champion[netifaces]
 
 # For async support via requests-futures
 pip install champion[futures]
+# or
+uv add champion[futures]
 
 # For development
 pip install champion[dev]
+# or
+uv add champion[dev]
 ```
 
 ## Requirements
@@ -251,6 +259,8 @@ cd champion
 
 # Install in development mode
 pip install -e ".[dev]"
+# or
+uv pip install -e ".[dev]"
 
 # Run tests
 pytest

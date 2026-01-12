@@ -1,6 +1,7 @@
 import re
-import setuptools
 from codecs import open
+
+import setuptools
 
 requires = [
     'requests <3.0, >=2.18.0',

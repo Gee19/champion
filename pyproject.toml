@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "champion"
-version = "1.0.0"
+version = "0.0.1"
 description = "A requests wrapper that prevents SSRF attacks - modernized fork of Advocate"
 readme = "README.md"
 license = "Apache-2.0"
 authors = [
-    { name = "Jordan Milne", email = "jordan@jordanmilne.ca" },
     { name = "Gee19" },
+    { name = "Jordan Milne", email = "jordan@jordanmilne.ca" },
 ]
 maintainers = [
     { name = "Gee19" },

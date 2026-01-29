@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "champion"
-version = "0.0.1"
+version = "0.0.2"
 description = "A requests wrapper that prevents SSRF attacks - modernized fork of Advocate"
 readme = "README.md"
 license = "Apache-2.0"

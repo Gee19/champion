@@ -72,7 +72,7 @@ class Session(RequestsSession):
 
         # Session.__init__() calls mount() internally, so we need to allow
         # it temporarily
-        self._mount_allowed = True
+        self.__mount_allowed = True
         super().__init__(*args, **kwargs)
 
         # Drop any existing adapters and replace with validating ones
@@ -85,7 +85,7 @@ class Session(RequestsSession):
             "https://",
             ValidatingHTTPAdapter(validator=self.validator, **adapter_kwargs),
         )
-        self._mount_allowed = False
+        self.__mount_allowed = False
 
     def mount(self, prefix: str | bytes, adapter: Any) -> None:
         """Mount an adapter - disabled to prevent protection bypass.
@@ -100,7 +100,7 @@ class Session(RequestsSession):
         Raises:
             MountDisabledException: If called after initialization.
         """
-        if self._mount_allowed:
+        if self.__mount_allowed:
             super().mount(prefix, adapter)
         else:
             raise MountDisabledException("mount() is disabled to prevent protection bypasses")

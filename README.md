@@ -3,7 +3,6 @@
 [![PyPI version](https://badge.fury.io/py/champion.svg)](https://badge.fury.io/py/champion)
 [![Python versions](https://img.shields.io/pypi/pyversions/champion.svg)](https://pypi.org/project/champion/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![CI](https://github.com/champion-ssrf/champion/actions/workflows/ci.yml/badge.svg)](https://github.com/champion-ssrf/champion/actions/workflows/ci.yml)
 
 **Champion** is a Python library that wraps the popular [requests](https://requests.readthedocs.io/) library to prevent Server-Side Request Forgery (SSRF) attacks.
 
@@ -172,18 +171,18 @@ with FuturesSession() as session:
 
 The `AddrValidator` class accepts the following parameters:
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `ip_blacklist` | Set[IPNetwork] | `set()` | IP networks to explicitly block |
-| `ip_whitelist` | Set[IPNetwork] | `set()` | IP networks to allow (overrides blacklist) |
-| `port_whitelist` | Set[int] | `{80, 443, 8080, 8443, 8000}` | Allowed ports |
-| `port_blacklist` | Set[int] | `set()` | Explicitly blocked ports |
-| `hostname_blacklist` | Set[str\|Pattern] | `set()` | Blocked hostnames (glob or regex) |
-| `allow_ipv6` | bool | `False` | Allow IPv6 addresses |
-| `allow_teredo` | bool | `False` | Allow Teredo tunneling |
-| `allow_6to4` | bool | `False` | Allow 6to4 tunneling |
-| `allow_dns64` | bool | `False` | Allow DNS64 addresses |
-| `autodetect_local_addresses` | bool | `True` | Detect and block local interfaces |
+| Parameter                    | Type              | Default                       | Description                                |
+| ---------------------------- | ----------------- | ----------------------------- | ------------------------------------------ |
+| `ip_blacklist`               | Set[IPNetwork]    | `set()`                       | IP networks to explicitly block            |
+| `ip_whitelist`               | Set[IPNetwork]    | `set()`                       | IP networks to allow (overrides blacklist) |
+| `port_whitelist`             | Set[int]          | `{80, 443, 8080, 8443, 8000}` | Allowed ports                              |
+| `port_blacklist`             | Set[int]          | `set()`                       | Explicitly blocked ports                   |
+| `hostname_blacklist`         | Set[str\|Pattern] | `set()`                       | Blocked hostnames (glob or regex)          |
+| `allow_ipv6`                 | bool              | `False`                       | Allow IPv6 addresses                       |
+| `allow_teredo`               | bool              | `False`                       | Allow Teredo tunneling                     |
+| `allow_6to4`                 | bool              | `False`                       | Allow 6to4 tunneling                       |
+| `allow_dns64`                | bool              | `False`                       | Allow DNS64 addresses                      |
+| `autodetect_local_addresses` | bool              | `True`                        | Detect and block local interfaces          |
 
 ## What Champion Blocks
 
@@ -254,7 +253,7 @@ response = champion.get("https://example.com")
 
 ```bash
 # Clone the repository
-git clone https://github.com/champion-ssrf/champion.git
+git clone https://github.com/gee19/champion.git
 cd champion
 
 # Install in development mode
@@ -284,7 +283,7 @@ Champion is released under the Apache 2.0 License. See [LICENSE](LICENSE) for de
 
 ## Credits
 
-Champion is based on [Advocate](https://github.com/JordanMilne/Advocate) by Jordan Milne. Original Advocate copyright (c) 2015 Jordan Milne.
+Champion is based on [Advocate](https://github.com/JordanMilne/Advocate) by Jordan Milne.
 
 ## Contributing
 
